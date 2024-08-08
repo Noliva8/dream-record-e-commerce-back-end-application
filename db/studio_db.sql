@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS studio_db;
+CREATE DATABASE studio_db;

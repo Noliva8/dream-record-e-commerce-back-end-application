@@ -3,6 +3,9 @@ const sequelize = require('./config/connection');
 const routes = require('./routes');
 
 
+const Tags = require('./Models/tags');
+
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 

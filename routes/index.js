@@ -2,7 +2,7 @@ const router = require('express').Router();
 const tagsRoutes = require('./api');
 
 
-router.use('/api', apiRoutes);
+router.use('/api', tagsRoutes );
 
 
 

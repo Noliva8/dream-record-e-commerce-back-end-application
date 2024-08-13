@@ -13,13 +13,14 @@ Tags.init(
       autoIncrement: true
     },
         tag_name:{
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false,
 
         },
 
         description:{
-            type: DataTypes.STRING
-
+            type: DataTypes.STRING,
+            allowNull: false,
         }
 
     },
@@ -34,4 +35,4 @@ Tags.init(
 )
 
 
-module.exports = router;
+module.exports = Tags;

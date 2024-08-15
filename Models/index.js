@@ -1,9 +1,9 @@
 // import all the models to establish the relationships
 // ----------------------------------------------------
 
-const Category = require('./categories');
-const Product = require ('./products');
-const Tag = require ('./tags');
+const Category = require('./category');
+const Product = require ('./product');
+const Tag = require ('./tag');
 const ProductTag = require('./ProductTag');
 
 

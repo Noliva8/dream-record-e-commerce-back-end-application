@@ -3,7 +3,8 @@ const sequelize = require('./config/connection');
 const routes = require('./routes');
 
 
-const Tags = require('./Models/tags');
+
+
 
 
 const app = express();

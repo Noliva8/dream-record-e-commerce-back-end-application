@@ -76,15 +76,22 @@ router.post('/', async (req, res) => {
 
 router.put('/:tag_id', async (req, res) => {
   try {
+    const { tag_name } = req.body;
+    const { tag_id } = req.params;
+
+    if (!tag_name) {
+      return res.status(400).json({ message: 'Tag name is required' });
+    }
+
     // Find the tag by its ID and update its name
     const [updated] = await Tag.update(
-      { tag_name: req.body.tag_name },
-      { where: { id: req.params.tag_id } }
+      { tag_name },
+      { where: { tag_id } }
     );
 
     if (updated) {
       // Fetch the updated tag data
-      const updatedTag = await Tag.findByPk(req.params.id);
+      const updatedTag = await Tag.findByPk(tag_id);
       res.status(200).json(updatedTag);
     } else {
       // If no rows were updated, the ID might not exist
@@ -95,6 +102,7 @@ router.put('/:tag_id', async (req, res) => {
     res.status(500).json({ message: 'Failed to update tag', error: error.message });
   }
 });
+
 
 
 // DELETE TAG

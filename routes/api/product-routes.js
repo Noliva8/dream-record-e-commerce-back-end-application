@@ -100,14 +100,16 @@ router.get('/:product_id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     // Destructure the request body
-    const { product_name, price, stock, tagIds = [] } = req.body;
+    const { product_name, price, stock, category_id, tagIds = [] } = req.body;
 
     // Create a new product
     const newProduct = await Product.create({
       product_name,
       price,
-      stock
-    });
+      stock,
+      category_id
+    }
+    );
 
     // Check if there are tag IDs to associate
     if (tagIds.length) {

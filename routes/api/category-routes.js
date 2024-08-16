@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Category, Product } = require('../../Models');
+const { Category, Product,  ProductTag } = require('../../Models');
 
 // The `/api/categories` endpoint
 
@@ -101,7 +101,6 @@ router.put('/:category_id', async (req, res) => {
 
     // Check if any rows were updated
     if (updatedCategory === 0) {
-      // If no rows were updated, it means the category was not found
       return res.status(404).json({ message: 'No category found with that id!' });
     }
 
@@ -115,7 +114,6 @@ router.put('/:category_id', async (req, res) => {
     // Log the error for debugging purposes
     console.error('Error updating category:', error);
 
-    // Send a JSON response with status code 500 Internal Server Error
     res.status(500).json({ message: 'Failed to update category', error: error.message });
   }
 });
@@ -125,29 +123,26 @@ router.put('/:category_id', async (req, res) => {
 // DELETE CATAEGORY
 // -----------------
 
-
 router.delete('/:category_id', async (req, res) => {
   try {
-    // Attempt to delete the category with the specified ID
-    const deletedCategory = await Category.destroy({
+    const categoryData = await Category.destroy({
       where: {
-        category_id: req.params.category_id
-      }
+        category_id: req.params.category_id,
+      },
     });
 
-    if (deletedCategory === 0) {
-      // No rows were affected, so the category with the specified ID was not found
-      res.status(404).json({ message: 'No category found with that id!' });
-    } else {
-      // Successfully deleted the category
-      res.status(200).json({ message: 'Category deleted successfully!' });
+    if (!categoryData) {
+      res.status(404).json({ message: 'No category data found with that id!' });
+      return;
     }
 
-  } catch (error) {
-    console.error('Error deleting category:', error);
-    res.status(500).json({ message: 'Failed to delete category', error: error.message });
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
+
+
 
 
 module.exports = router;

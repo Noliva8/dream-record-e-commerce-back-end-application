@@ -27,19 +27,23 @@ Product.belongsTo(Category, {
 // --------------------------------------------
 
 Product.belongsToMany(Tag, {
-    through:{
-    model: ProductTag,
-    unique: false
+    through: ProductTag,
+    foreignKey: "product_id",
 
-    },
+    // model: ProductTag,
+    // unique: false
+
+    // },
     as: 'product_tag'
 });
 
 Tag.belongsToMany(Product, {
-    through: {
-        model: ProductTag,
-        unique: false
-    },
+    through: ProductTag,
+    foreignKey: "tag_id",
+
+    //     model: ProductTag,
+    //     unique: false
+    // },
 
     as: 'tag_product'
 

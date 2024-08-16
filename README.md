@@ -14,7 +14,13 @@ The Dream Record E-Commerce Back-End Application is a robust, scalable, and secu
 - [Questions](#questions)
 
 ## Installation
-Install Node.js on your system, Ensure PostgreSQL is installed and running, Install Sequelize CLI for managing database migrations, Clone the application repository from the version control system, Install the required Node.js dependencies, Configure the application by setting up database connection details in the configuration files, Create the database and tables in PostgreSQL, Run migrations to initialize the database schema, Start the application using Node.js
+Install Node.js on your system, Ensure PostgreSQL is installed and running, Install Sequelize CLI for managing database migrations, Clone the application repository from the version control system, Install the required Node.js dependencies, Configure the application by setting up database connection details in the configuration files, Create the database and tables in PostgreSQL, Run migrations to initialize the database schema, Start the application using Node.js.
+
+Here is the link of the walkthrou video:
+
+https://www.youtube.com/watch?v=BOOCmtxlxB4
+
+
 
 ## Usage
 Once you have installed and set up the Dream Record E-Commerce Back-End Application, you can use it as follows: tarting the Application:
